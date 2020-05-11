@@ -1,3 +1,4 @@
+// sleep allows us to delay fetch promises from resolving
 import sleep from "sleep-promise";
 
 export function fetchPokemon(id) {
@@ -12,6 +13,8 @@ export function fetchPokemonCollection() {
     .then(sleep(2000));
 }
 
+// suspensify is our own promises wrappers to communicate 
+// pending, error, and success statuses to Suspense and error boundaries components
 export function suspensify(promise) {
   let status = "pending";
   let result;
